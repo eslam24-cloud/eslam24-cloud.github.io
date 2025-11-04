@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مواقيت الصلاة</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="app-root">
+
+    <header class="text-center pt-4">
+      <h1 id="title" class="fw-bold">مواقيت الصلاة</h1>
+      <p id="subtitle" class="mb-3">اضغط "استخدم موقعي" لحساب المواقيت تلقائيًا أو اكتب اسم مدينتك ثم اضغط "عرض المواقيت"</p>
+    </header>
+
+    <section class="d-flex justify-content-center px-3">
+      <div class="card main-card p-4 shadow-sm">
+
+        <div class="controls d-flex flex-column align-items-center gap-3">
+          <div class="circle circle-input">
+            <input id="cityInput" type="text" placeholder="اكتب اسم مدينتك أو محافظتك هنا" />
+          </div>
+
+          <div class="d-flex gap-3">
+            <div class="circle circle-btn">
+              <button id="getLocationBtn" class="btn btn-circle">استخدام موقعي</button>
+            </div>
+
+            <div class="circle circle-btn">
+              <button id="getPrayerTimesBtn" class="btn btn-circle">عرض المواقيت</button>
+            </div>
+          </div>
+
+          <div class="circle circle-lang">
+            <button id="langBtn" class="btn btn-circle small">English</button>
+          </div>
+        </div>
+
+        <section id="prayerSection" class="mt-3 d-none" aria-live="polite">
+          <div id="prayerHeader" class="text-center mb-2">
+            <h2 id="prayerTitle" class="h5 mb-0">مواقيت اليوم</h2>
+            <div id="prayerSub" class="small text-muted"></div>
+          </div>
+
+          <div id="prayerList" class="d-flex flex-column align-items-center gap-3"></div>
+        </section>
+
+        <div class="mt-3 d-flex justify-content-center">
+          <div class="circle circle-azkar" id="azkarBox">الحمدلله</div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer id="footerBar" class="footer-bar"> 
+      <div class="footer-links">
+        <a href="privacy.html" id="privacyText">سياسة الخصوصية</a>
+        <a href="about.html" id="aboutText">من نحن</a>
+        <a href="contact.html" id="contactText">تواصل معنا</a>
+      </div>
+
+      <div class="footer-social">
+        <span id="creator" class="small">Created by Eslam Emad</span> 
+        <a href="https://www.instagram.com/eslam_emad24" target="_blank" class="insta-icon">
+          <i class="fab fa-instagram"></i> <span id="instaText">Instagram</span>
+        </a>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>

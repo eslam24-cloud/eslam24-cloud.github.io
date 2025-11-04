@@ -1,0 +1,289 @@
+/* ---------- Base / fonts ---------- */
+* { box-sizing: border-box; }
+html,body { height:100%; }
+body{
+  margin:0;
+  font-family: "Tajawal", sans-serif; /* الخط الرئيسي الموحد لجميع النصوص */
+  background: url("images/Eslam.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #ffc400;
+  direction: rtl;
+  text-align: right;
+  transition: 0.3s ease-in-out;
+}
+
+/* ---- Loader ---- */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.spinner {
+  width: 90px;
+  height: 90px;
+  border: 5px solid rgba(255,196,0,0.25);
+  border-top-color: #ffc400;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* hidden until loader finishes */
+.d-none { display: none !important; }
+
+/* ---- Theme: Light Mode ---- */
+body.light {
+  color: #222;
+}
+body.light .circle,
+body.light .prayer-row,
+body.light .policy-page {
+  background: rgba(255,255,255,0.72);
+  border-color: #c49600;
+  color: #222;
+}
+body.light .btn-circle { color:#222; }
+body.light .btn-circle:hover { background:#ffc400; color:#000; }
+body.light #prayerTitle { color:#222; }
+body.light #prayerSub { color:#555; }
+body.light footer { background: rgba(255,255,255,0.65); }
+body.light footer a { color:#222; }
+body.light .circle-azkar { color:#222; }
+
+/* remove any full-page overlay */
+.overlay { display:none; }
+
+/* main layout */
+.app-root { min-height:100vh; display:flex; flex-direction:column; justify-content:flex-start; align-items:stretch; padding-bottom:100px; }
+
+/* card */
+.main-card{
+  width:100%;
+  max-width:700px;
+  margin: 10px auto 40px;
+  background: transparent;
+  border: none;
+}
+
+/* ===== Circles style (30% transparency) ===== */
+.circle {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,0.30);
+  border: 2px solid rgba(255,196,0,0.95);
+  color: #ffc400;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: 0.3s;
+}
+
+/* input circle */
+.circle-input {
+  width: 360px;
+  height: 90px;
+}
+.circle-input input {
+  width: 88%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffc400;
+  font-size: 18px;
+  text-align:center;
+}
+
+/* button circles */
+.circle-btn {
+  width: 120px;
+  height: 120px;
+}
+.btn-circle {
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background: transparent;
+  border: none;
+  color: #ffc400;
+  font-weight:700;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.25s;
+}
+.btn-circle:hover {
+  background:#ffc400;
+  color:#000;
+}
+
+/* language circle */
+.circle-lang { width: 120px; height: 80px; }
+.circle-mode { width: 120px; height: 80px; }
+.btn.small { font-size:15px; }
+
+/* azkar circle */
+.circle-azkar {
+  width: 320px;
+  height: 90px;
+  font-size: 20px;
+  font-weight:600;
+}
+
+/* prayer list */
+.prayer-list { width:100%; max-width:520px; display:flex; flex-direction:column; gap:12px; align-items:center; }
+
+/* prayer row pill */
+.prayer-row {
+  width: 92%;
+  max-width:520px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 14px 18px;
+  background: rgba(0,0,0,0.30);
+  border-radius: 50px;
+  border: 2px solid rgba(255,196,0,0.95);
+  color: #ffc400;
+  font-size: 18px;
+  font-weight:600;
+}
+
+/* prayer label/time */
+.prayer-label { text-align:right; width:55%; padding-right:10px; }
+.prayer-time { text-align:left; width:45%; padding-left:10px; }
+
+/* header/prayer title */
+#prayerTitle { font-size:20px; font-weight:700; color:#ffc400; }
+#prayerSub { color: rgba(255,255,255,0.85); }
+
+/* -------- Responsive -------- */
+@media (max-width:600px){
+  .circle-input { width:280px; height:80px; }
+  .circle-btn { width:96px; height:96px; }
+  .circle-lang, .circle-mode { width:96px; height:64px; }
+  .circle-azkar { width:260px; height:80px; font-size:18px; }
+  .prayer-row{ padding:12px; font-size:16px; }
+}
+
+/* LTR Mode (English) */
+body.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+/* ======================================= */
+/* ✅ التعديل الرئيسي لحل مشكلة التنسيق غير الموحد (المشكلة الثانية) */
+/* هذا يضمن إزالة نقاط القوائم وتنسيق الروابط في أي قائمة تنقل */
+/* ======================================= */
+ul {
+  list-style: none; /* إزالة النقاط الافتراضية */
+  padding: 0;
+  margin: 0;
+}
+/* تنسيق الروابط العامة في القوائم */
+ul a {
+  text-decoration: none; /* إزالة الخط تحت الروابط */
+  font-weight: 500;
+  color: inherit; /* لضمان أخذ لون الصفحة */
+  display: block; 
+}
+ul a:hover {
+  text-decoration: underline;
+  color: #ffc400;
+}
+
+/* -------- ✅ Policy Pages Style -------- */
+/* هذه التنسيقات مخصصة لصفحات الخصوصية، من نحن، إلخ. وتضمن أن الخطوط موحدة بفضل body */
+.policy-page {
+  max-width: 780px;
+  margin: 40px auto;
+  background: rgba(0,0,0,0.45);
+  padding: 30px 35px;
+  border-radius: 18px;
+  border: 2px solid rgba(255,196,0,0.85);
+  color:#ffc400;
+  line-height: 1.9;
+  font-size:18px;
+  transition:0.3s;
+}
+.policy-page h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color:#ffd94b;
+  text-align:center;
+}
+.policy-page h2 {
+  font-size: 22px;
+  margin: 25px 0 10px;
+  color:#ffdd67;
+}
+.policy-page p {
+  margin-bottom: 15px;
+  color: #ffe79d;
+}
+.policy-page a {
+  color:#fff7b0;
+  font-weight:600;
+  text-decoration:none;
+}
+.policy-page a:hover {
+  color:#ffc400;
+  text-decoration:underline;
+}
+
+/* -------- ✅ Floating Footer -------- */
+footer {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background: rgba(0,0,0,0.55);
+  padding: 12px 0;
+  display:flex;
+  justify-content:center;
+  align-items:center; 
+  gap:18px;
+  border-top:2px solid rgba(255,196,0,0.85);
+  transition:0.3s;
+}
+
+/* تنسيق الروابط داخل الفوتر */
+.footer-links a {
+  color:#ffc400;
+  text-decoration:none;
+  font-size:17px;
+  font-weight:600;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color:#ffffff;
+  text-decoration:underline;
+}
+
+/* تنسيق الروابط الاجتماعية */
+.footer-social a {
+  color:#ffc400;
+  text-decoration:none;
+  font-size:17px;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  transition: color 0.2s;
+}
+.footer-social a:hover {
+  color:#ffffff;
+}
+
+/* تم دمج التنسيقات المتكررة */
+footer img {
+  width:22px;
+  height:22px;
+  filter: drop-shadow(0 0 2px black);
+}
