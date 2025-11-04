@@ -4,7 +4,7 @@ html,body { height:100%; }
 body{
   margin:0;
   font-family: "Tajawal", sans-serif; /* الخط الرئيسي الموحد لجميع النصوص */
-  background: url("images/Eslam.jpg") no-repeat center center fixed;
+  background: url("/images/Eslam.jpg") no-repeat center center fixed;
   background-size: cover;
   color: #ffc400;
   direction: rtl;
